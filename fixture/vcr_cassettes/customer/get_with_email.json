@@ -1,0 +1,37 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://sandbox.checkout.com/api2/v2/customers?email=test@example.org"
+    },
+    "response": {
+      "body": "{\"id\":\"cust_2B6C9D26-5C63-4B37-9348-160F3C3A47CB\",\"name\":\"John Smith\",\"livemode\":false,\"created\":\"2016-06-23T16:02:26Z\",\"email\":\"test@example.com\",\"phone\":{\"countryCode\":\"1\",\"number\":\"(718)123-4567\"},\"description\":\"description\",\"metadata\":{\"keyname\":\"testvalue\"},\"cards\":{\"count\":1,\"data\":[{\"customerId\":\"cust_2B6C9D26-5C63-4B37-9348-160F3C3A47CB\",\"expiryMonth\":\"06\",\"expiryYear\":\"2018\",\"billingDetails\":{\"addressLine1\":\"100 Sesame Street\",\"addressLine2\":\"Apartment 5\",\"postcode\":\"11201\",\"country\":\"US\",\"city\":\"New York\",\"state\":\"New York\",\"phone\":{\"countryCode\":\"1\",\"number\":\"(718)123-4567\"}},\"id\":\"card_D45FB138-15BA-4116-ADCE-49354D89D6C0\",\"last4\":\"4242\",\"bin\":\"424242\",\"paymentMethod\":\"VISA\",\"fingerprint\":\"F639CAB2745BEE4140BF86DF6B6D6E255C5945AAC3788D923FA047EA4C208622\",\"name\":\"Mr. John Smith\",\"responseCode\":\"10000\"}]},\"defaultCard\":\"card_D45FB138-15BA-4116-ADCE-49354D89D6C0\"}",
+      "headers": {
+        "Date": "Mon, 09 Oct 2017 09:07:21 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "260",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache",
+        "Expires": "-1",
+        "Product": "Gateway",
+        "Version": "3.13.0",
+        "Request-Id": "630894bd-6f03-4de2-b0ff-a8dc3cf719e8",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin,X-Requested-With,Content-Type,Accept,X-AuthToken,Access-Control-Request-Method,Access-Control-Allow-Methods,Access-Control-Request-Headers,authorization,X_Auth_Credentials",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Request-Method": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Request-Headers": "authorization"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

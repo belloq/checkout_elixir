@@ -1,0 +1,37 @@
+[
+  {
+    "request": {
+      "body": "{\"version\":\"EC_v1\",\"signature\":\"MIAGCSqGSIb3DQEHAqCAMI..Ld2uMYqksJoO5lMlwAAAAAAAA==\",\"header\":{\"wrappedKey\":\"3mWagrJNMIIC7jCCAnWgAwIBA..ISW0vvzqY2pcwCgYIKoZIzEAw\",\"transactionId\":\"11c21bd6357a0952f23817e..80b254c3a20734137cf7be168\",\"publicKeyHash\":\"tqYV+tmG9aMh+l/K6cic..1gUiLjSTM9gEz6Nl0=\",\"ephemeralPublicKey\":\"MFkwEwYHKoZIzj0ZIzj0DAQcDQgAE..tf1z9S28unel+C+q7UXiuw==\",\"applicationData\":\"BBQUHAgIwgbYMgbNS..ZWxpYW5jZSBvbiB0aGlzIGN==\"},\"data\":\"J/a5u/KyFkXVy4ghO2../+tjRfzjylbX3djJDKPPIBAs=\"}",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://sandbox.checkout.com/applepay/token"
+    },
+    "response": {
+      "body": "{\"token\":\"tok_cad50118709882feabbfdf5a1cd9b4e3\"}",
+      "headers": {
+        "Date": "Mon, 09 Oct 2017 07:36:07 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "258",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache",
+        "Expires": "-1",
+        "Product": "Gateway",
+        "Version": "3.13.0",
+        "Request-Id": "5e048573-34b2-4447-b7a4-5963ec21c7d8",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin,X-Requested-With,Content-Type,Accept,X-AuthToken,Access-Control-Request-Method,Access-Control-Allow-Methods,Access-Control-Request-Headers,authorization,X_Auth_Credentials",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Request-Method": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Request-Headers": "authorization"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

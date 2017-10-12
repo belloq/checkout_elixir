@@ -1,0 +1,37 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://sandbox.checkout.com/api2/v2/charges/charge_B41BEAAC175U76BD3EE1"
+    },
+    "response": {
+      "body": "{\"id\":\"charge_B41BEAAC175U76BD3EE1\",\"liveMode\":true,\"created\":\"2015-04-07T16:31:58Z\",\"value\":4298,\"currency\":\"usd\",\"trackId\":\"TRK12345\",\"description\":\"charge description\",\"email\":\"LanaSMartin@dayrep.com\",\"chargeMode\":1,\"transactionIndicator\":1,\"customerIp\":\"96.125.365.51\",\"responseMessage\":\"Approved\",\"responseAdvancedInfo\":\"Approved\",\"responseCode\":\"10000\",\"status\":\"Authorised\",\"authCode\":\"634622\",\"isCascaded\":false,\"autoCapture\":\"N\",\"autoCapTime\":0,\"card\":{\"id\":\"card_6AF19164-3233-4825-BEF9-143F04DA2E94\",\"last4\":\"4242\",\"bin\":\"424242\",\"paymentMethod\":\"Visa\",\"fingerprint\":\"C96C9E67-DF9A-442A-93C5-CEEE7955314B\",\"customerId\":\"cust_81AEE254-49C6-4AA0-A775-993669C5BDAD\",\"name\":\"Sim Haag\",\"expiryMonth\":\"06\",\"expiryYear\":\"2018\",\"billingDetails\":{\"addressLine1\":\"72 Myrna Parkways\",\"addressLine2\":\"Hoppe Fork\",\"postcode\":\"aq81ct\",\"country\":\"US\",\"city\":\"Serenamouth\",\"state\":\"Luzmouth\",\"phone\":{\"countryCode\":\"44\",\"number\":\"12345678\"}},\"cvvCheck\":\"Y\",\"avsCheck\":\"S\",\"responseCode\":null},\"metadata\":{\"key1\":\"value1\"},\"shippingDetails\":{\"addressLine1\":\"333 Cormier Bypass\",\"addressLine2\":\"Rolfson Alley\",\"postcode\":\"ue0 2ou\",\"country\":\"US\",\"city\":\"Schmittchester\",\"state\":\"Jakubowskiton\",\"phone\":{\"countryCode\":\"44\",\"number\":\"12345678\"}},\"products\":[{\"description\":\"Tablet 1 gold limited\",\"image\":null,\"name\":\"Tablet 1 gold limited\",\"price\":100,\"quantity\":1,\"shippingCost\":10,\"sku\":\"1aab2aa\",\"trackingUrl\":\"https:\/\/www.tracker.com\"},{\"description\":\"Tablet 2 gold limited\",\"image\":null,\"name\":\"Tablet 2 gold limited\",\"price\":200,\"quantity\":2,\"shippingCost\":10,\"sku\":\"1aab2aa\",\"trackingUrl\":\"https:\/\/www.tracker.com\"}],\"udf1\":\"udf 1 value\",\"udf2\":\"udf 2 value\",\"udf3\":\"udf 3 value\",\"udf4\":\"udf 4 value\",\"udf5\":\"udf 5 value\"}",
+      "headers": {
+        "Date": "Mon, 09 Oct 2017 07:36:07 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "258",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache",
+        "Expires": "-1",
+        "Product": "Gateway",
+        "Version": "3.13.0",
+        "Request-Id": "5e048573-34b2-4447-b7a4-5963ec21c7d8",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin,X-Requested-With,Content-Type,Accept,X-AuthToken,Access-Control-Request-Method,Access-Control-Allow-Methods,Access-Control-Request-Headers,authorization,X_Auth_Credentials",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Request-Method": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Request-Headers": "authorization"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

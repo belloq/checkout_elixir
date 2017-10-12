@@ -1,0 +1,37 @@
+[
+  {
+    "request": {
+      "body": "{\"name\":\"Test User\"}",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "put",
+      "options": [],
+      "request_body": "",
+      "url": "https://sandbox.checkout.com/api2/v2/customers/cust_F3DF0803-19BA-4AFE-9215-A8C90B32FFD7"
+    },
+    "response": {
+      "body": "{\"message\":\"ok\"}",
+      "headers": {
+        "Date": "Mon, 09 Oct 2017 09:51:27 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "16",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache",
+        "Expires": "-1",
+        "Product": "Gateway",
+        "Version": "3.13.0",
+        "Request-Id": "b4637014-29bd-477c-804e-f5eec0d9d12f",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin,X-Requested-With,Content-Type,Accept,X-AuthToken,Access-Control-Request-Method,Access-Control-Allow-Methods,Access-Control-Request-Headers,authorization,X_Auth_Credentials",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Request-Method": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Request-Headers": "authorization"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
