@@ -14,7 +14,7 @@ defmodule Checkout.Charge do
       cardId: "card_UUID",
       email: "test@example.org",
       value: 100,
-      currency: "USD",
+      currency: "USD"
     })
   ```
   """
@@ -31,7 +31,7 @@ defmodule Checkout.Charge do
       cardToken: "card_tok_UUID",
       email: "test@example.org",
       value: 100,
-      currency: "USD",
+      currency: "USD"
     })
   ```
   """
