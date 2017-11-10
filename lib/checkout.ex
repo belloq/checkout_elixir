@@ -37,6 +37,7 @@ defmodule Checkout do
   end
 
   def make_request(method, endpoint, body \\ "", headers \\ [], options \\ []) do
+    options = Keyword.put(options, :recv_timeout, 30_000)
     {:ok, response} = request(method, endpoint, body, headers, options)
     case response.status_code do
       200 -> {:ok, response.body}
