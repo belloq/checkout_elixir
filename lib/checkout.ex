@@ -33,7 +33,7 @@ defmodule Checkout do
 
   def process_response_body(body) do
     body
-    |> Poison.decode!([keys: :atoms])
+    |> Poison.decode!
   end
 
   def make_request(method, endpoint, body \\ "", headers \\ [], options \\ []) do

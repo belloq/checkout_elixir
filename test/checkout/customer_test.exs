@@ -26,21 +26,21 @@ defmodule Checkout.CustomerTest do
   test "customer#list" do
     use_cassette "customer/list" do
       {:ok, response} = Checkout.Customer.list(nil, nil, 1)
-      assert %{count: 1} = response
+      assert %{"count" => 1} = response
     end
   end
 
   test "customer#update" do
     use_cassette "customer/update" do
       {:ok, response} = Checkout.Customer.update("cust_F3DF0803-19BA-4AFE-9215-A8C90B32FFD7", %{name: "Test User"})
-      assert response == %{message: "ok"}
+      assert response == %{"message" => "ok"}
     end
   end
 
   test "customer#delete" do
     use_cassette "customer/delete" do
       {:ok, response} = Checkout.Customer.delete("cust_F3DF0803-19BA-4AFE-9215-A8C90B32FFD7")
-      assert response == %{message: "ok"}
+      assert response == %{"message" => "ok"}
     end
   end
 end

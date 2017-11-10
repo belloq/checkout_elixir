@@ -12,7 +12,7 @@ defmodule Checkout.PaymentTokenTest do
   test "payment_token#update" do
     use_cassette "payment_token/update" do
       {:ok, response} = Checkout.PaymentToken.update("pay_tok_5a010daa-4a30-4171-a8e9-8ae0c6de1c68", %{trackId: "TRK12345"})
-      assert response == %{message: "ok"}
+      assert response == %{"message" => "ok"}
     end
   end
 
@@ -20,7 +20,7 @@ defmodule Checkout.PaymentTokenTest do
     use_cassette "payment_token/visa_checkout" do
       {:ok, response} = Checkout.PaymentToken.visa_checkout("6937148828912356701")
       refute response == %{}
-      refute response.id == nil
+      refute response["id"] == nil
     end
   end
 
@@ -39,7 +39,7 @@ defmodule Checkout.PaymentTokenTest do
         }
       })
       refute response == %{}
-      refute response.token == nil
+      refute response["token"] == nil
     end
   end
 end

@@ -12,7 +12,7 @@ defmodule Checkout.ChargeTest do
       })
 
       refute response == %{}
-      refute response.id == nil
+      refute response["id"] == nil
     end
   end
 
@@ -26,7 +26,7 @@ defmodule Checkout.ChargeTest do
       })
 
       refute response == %{}
-      refute response.id == nil
+      refute response["id"] == nil
     end
   end
 
@@ -45,7 +45,7 @@ defmodule Checkout.ChargeTest do
       })
 
       refute response == %{}
-      refute response.id == nil
+      refute response["id"] == nil
     end
   end
 
@@ -58,7 +58,7 @@ defmodule Checkout.ChargeTest do
       })
 
       refute response == %{}
-      refute response.id == nil
+      refute response["id"] == nil
     end
   end
 
@@ -74,7 +74,7 @@ defmodule Checkout.ChargeTest do
     use_cassette "charge/update" do
       {:ok, response} = Checkout.Charge.update("charge_B41BEAAC175U76BD3EE1", %{description: "charge updated"})
 
-      assert response == %{message: "ok"}
+      assert response == %{"message" => "ok"}
     end
   end
 
@@ -83,7 +83,7 @@ defmodule Checkout.ChargeTest do
       {:ok, response} = Checkout.Charge.capture("charge_B41BEAAC175U76BD3EE1")
 
       refute response == %{}
-      assert response.status == "Captured"
+      assert response["status"] == "Captured"
     end
   end
 
@@ -92,7 +92,7 @@ defmodule Checkout.ChargeTest do
       {:ok, response} = Checkout.Charge.void("charge_B41BEAAC175U76BD3EE1")
 
       refute response == %{}
-      assert response.status == "Voided"
+      assert response["status"] == "Voided"
     end
   end
 
@@ -101,7 +101,7 @@ defmodule Checkout.ChargeTest do
       {:ok, response} = Checkout.Charge.refund("charge_B41BEAAC175U76BD3EE1")
 
       refute response == %{}
-      assert response.status == "Refunded"
+      assert response["status"] == "Refunded"
     end
   end
 
