@@ -16,6 +16,19 @@ defmodule Checkout.ChargeTest do
     end
   end
 
+  test "charge#create_with_id - invalid_response" do
+    use_cassette "charge/create_with_id_invalid_response" do
+      response = Checkout.Charge.create(%{
+        cardId: "card_9F2123D1-4F25-4F3D-AD68-344C01C28B59",
+        email: "test@example.org",
+        value: 100,
+        currency: "USD",
+      })
+
+      assert {:error, _} = response
+    end
+  end
+
   test "charge#create_with_token" do
     use_cassette "charge/create_with_token" do
       {:ok, response} = Checkout.Charge.create(%{

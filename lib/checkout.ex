@@ -33,17 +33,20 @@ defmodule Checkout do
 
   def process_response_body(body) do
     body
-    |> Jason.decode!
+    |> Jason.decode
+    |> case do
+      {:ok, data} -> data
+      {:error, _} -> {:error, body}
+    end
   end
 
   def make_request(method, endpoint, body \\ "", headers \\ [], options \\ []) do
     options = Keyword.put(options, :recv_timeout, 30_000)
     {:ok, response} = request(method, endpoint, body, headers, options)
-    case response.status_code do
-      200 -> {:ok, response.body}
-      400 -> {:error, response.body}
-      401 -> {:error, :unauthorized}
-      404 -> {:error, :not_found}
+
+    case response.body do
+      {:error, _} = err -> err
+      _ -> handle_response(response)
     end
   end
 
@@ -60,6 +63,15 @@ defmodule Checkout do
       Map.put(uri, :path, "/")
     else
       uri
+    end
+  end
+
+  defp handle_response(response) do
+    case response.status_code do
+      200 -> {:ok, response.body}
+      400 -> {:error, response.body}
+      401 -> {:error, :unauthorized}
+      404 -> {:error, :not_found}
     end
   end
 end
