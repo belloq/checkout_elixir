@@ -28,12 +28,12 @@ defmodule Checkout do
   end
 
   def process_request_body(body) do
-    Poison.encode!(body)
+    Jason.encode!(body)
   end
 
   def process_response_body(body) do
     body
-    |> Poison.decode!
+    |> Jason.decode!
   end
 
   def make_request(method, endpoint, body \\ "", headers \\ [], options \\ []) do
@@ -56,8 +56,8 @@ defmodule Checkout do
   end
 
   defp remove_path_if_needed(uri, endpoint) do
-    if String.match?(endpoint, ~r/applepay/) do
-      Map.replace(uri, :path, "/")
+    if String.contains?(endpoint, "applepay") do
+      Map.put(uri, :path, "/")
     else
       uri
     end

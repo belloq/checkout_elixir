@@ -51,7 +51,7 @@ defmodule Checkout.PaymentToken do
   end
 
   @doc """
-  Create a Payment Token with te given payment datas.
+  Create a Payment Token with the given payment data.
 
   Checkout API reference: https://docs.checkout.com/getting-started/merchant-api/alternative-payments/apple-pay
 
