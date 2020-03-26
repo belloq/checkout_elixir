@@ -1,6 +1,6 @@
 defmodule Checkout.PaymentToken do
   @moduledoc """
-  Checkout API reference: https://docs.checkout.com/reference/merchant-api-reference/payment-tokens
+  Checkout API reference: https://archive.docs.checkout.com/docs/create-a-payment-token
   """
 
   @endpoint "tokens/payment"
@@ -36,7 +36,7 @@ defmodule Checkout.PaymentToken do
   @doc """
   Create a Payment Token with the given Visa Checkout Call ID.
 
-  Checkout API reference: https://docs.checkout.com/reference/merchant-api-reference/visa-checkout
+  Checkout API reference: https://archive.docs.checkout.com/docs/visa-checkout
 
   ## Example
   ```
@@ -53,7 +53,7 @@ defmodule Checkout.PaymentToken do
   @doc """
   Create a Payment Token with the given payment data.
 
-  Checkout API reference: https://docs.checkout.com/getting-started/merchant-api/alternative-payments/apple-pay
+  Checkout API reference: https://archive.docs.checkout.com/docs/apple-pay
 
   ## Example
   ```

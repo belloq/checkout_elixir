@@ -1,6 +1,6 @@
 defmodule Checkout.Charge do
   @moduledoc """
-  Checkout API reference: https://docs.checkout.com/reference/merchant-api-reference/charges
+  Checkout API reference: https://archive.docs.checkout.com/docs/capture_a_payment
   """
 
   @endpoint "charges"

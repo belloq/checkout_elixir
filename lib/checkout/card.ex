@@ -1,6 +1,6 @@
 defmodule Checkout.Card do
   @moduledoc """
-  Checkout API reference: https://docs.checkout.com/reference/merchant-api-reference/cards/create-card
+  Checkout API reference: https://archive.docs.checkout.com/docs/get-card
   """
 
   defp endpoint(customer_id) do

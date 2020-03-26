@@ -1,6 +1,6 @@
 defmodule Checkout.Customer do
   @moduledoc """
-  Checkout API reference: https://docs.checkout.com/reference/merchant-api-reference/customers
+  Checkout API reference: https://archive.docs.checkout.com/docs/get-customer
   """
 
   @endpoint "customers"
