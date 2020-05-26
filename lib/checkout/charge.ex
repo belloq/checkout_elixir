@@ -3,40 +3,64 @@ defmodule Checkout.Charge do
   Checkout API reference: https://archive.docs.checkout.com/docs/capture_a_payment
   """
 
-  @endpoint "charges"
+  @endpoint "payments"
+
+  def build_params(params, source) do
+    params
+    |> Map.put(:amount, Map.get(params, :value))
+    |> Map.put(:source, source)
+  end
+
+  def payment_request(method, params, source) when method in [:post, :get] do
+    Checkout.make_request(method, @endpoint, build_params(params, source))
+  end
 
   @doc """
   Create a Charge with Card ID.
 
   ## Example
   ```
-    Checkout.Charge.create(%{
-      cardId: "card_UUID",
-      email: "test@example.org",
-      value: 100,
-      currency: "USD"
-    })
+  Checkout.Payment.create(%{
+    source: %{
+      type: "id",
+      id: "src_i3ywxkcgu5cevigmdxoy6km5je",
+      cvv: "100",
+    },
+    amount: 6500,
+    currency: "USD",
+    reference: "ORD-5023-4E89"
+  })
   ```
   """
   def create(%{cardId: card_id} = params) when not is_nil(card_id) do
-    Checkout.make_request(:post, "#{@endpoint}/card", params)
+    source = %{type: "id", id: card_id}
+
+    payment_request(:post, params, source)
   end
 
   @doc """
-  Create a Charge with Card Token.
+  Create a Payment with Card Token.
 
   ## Example
   ```
-    Checkout.Charge.create(%{
-      cardToken: "card_tok_UUID",
-      email: "test@example.org",
-      value: 100,
-      currency: "USD"
+    Checkout.Payment.create(%{
+      source: %{
+        type: "token",
+        token: "card_tok_9EDE49...A52CC25"
+      },
+      amount: 2000,
+      currency: "USD",
+      reference: "TRK12345"
     })
   ```
   """
-  def create(%{cardToken: card_token} = params) when not is_nil(card_token) do
-    Checkout.make_request(:post, "#{@endpoint}/token", params)
+  def create(%{cardToken: card_token} = params) do
+    source = %{
+      type: "token",
+      token: card_token
+    }
+
+    payment_request(:post, params, source)
   end
 
   @doc """
@@ -45,20 +69,29 @@ defmodule Checkout.Charge do
   ## Example
   ```
     Checkout.Charge.create(%{
-      email: "test@example.org",
-      value: 100,
-      currency: "USD",
-      card: %{
+      source: %{
+        type:"card",
         number: "4242424242424242",
-        expiryMonth: 6,
-        expiryYear: 2018,
-        cvv: 100
-      }
+        expiry_month: 9,
+        expiry_year: 2019,
+        cvv: "100"
+      },
+      amount: 2000,
+      currency:"USD",
+      reference: "TRK12345"
     })
   ```
   """
   def create(%{card: card} = params) when is_map(card) do
-    Checkout.make_request(:post, "#{@endpoint}/card", params)
+    source = %{
+      type: "card",
+      number: Map.get(card, :number),
+      expiry_month: Map.get(card, :expiryMonth),
+      expiry_year: Map.get(card, :expiryYear),
+      cvv: Map.get(card, :cvv)
+    }
+
+    payment_request(:post, params, source)
   end
 
   @doc """
@@ -67,14 +100,20 @@ defmodule Checkout.Charge do
   ## Example
   ```
     Checkout.Charge.create(%{
-      email: "test@example.org",
-      value: 100,
-      currency: "USD"
+  	  source: %{
+        type: "customer",
+        id: "cus_dxbrk2ruktbutlnbtilhv2qyzm",
+      },
+      amount: 2000,
+      currency:"USD",
+      reference: "TRK12345"
     })
   ```
   """
   def create(params) do
-    Checkout.make_request(:post, "#{@endpoint}/customer", params)
+    source = %{type: "customer"}
+
+    payment_request(:post, params, source)
   end
 
   @doc """
@@ -110,7 +149,7 @@ defmodule Checkout.Charge do
   ```
   """
   def capture(id) do
-    Checkout.make_request(:post, "#{@endpoint}/#{id}/capture")
+    Checkout.make_request(:post, "#{@endpoint}/#{id}/captures")
   end
 
   @doc """
@@ -122,7 +161,7 @@ defmodule Checkout.Charge do
   ```
   """
   def void(id) do
-    Checkout.make_request(:post, "#{@endpoint}/#{id}/void")
+    Checkout.make_request(:post, "#{@endpoint}/#{id}/voids")
   end
 
   @doc """
@@ -134,7 +173,7 @@ defmodule Checkout.Charge do
   ```
   """
   def refund(id) do
-    Checkout.make_request(:post, "#{@endpoint}/#{id}/refund")
+    Checkout.make_request(:post, "#{@endpoint}/#{id}/refunds")
   end
 
   @doc """
@@ -146,7 +185,7 @@ defmodule Checkout.Charge do
   ```
   """
   def history(id) do
-    Checkout.make_request(:get, "#{@endpoint}/#{id}/history")
+    Checkout.make_request(:get, "#{@endpoint}/#{id}/actions")
   end
 
   @doc """
