@@ -10,7 +10,7 @@ defmodule Checkout.Charge do
 
   ## Example
   ```
-  Checkout.Payment.create(%{
+  Checkout.Charge.create(%{
     source: %{
       type: "id",
       id: "src_i3ywxkcgu5cevigmdxoy6km5je",
@@ -31,7 +31,7 @@ defmodule Checkout.Charge do
 
   ## Example
   ```
-    Checkout.Payment.create(%{
+    Checkout.Charge.create(%{
       source: %{
         type: "token",
         token: "card_tok_9EDE49...A52CC25"
