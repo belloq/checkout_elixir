@@ -2,20 +2,6 @@ defmodule Checkout.PaymentTokenTest do
   use ExUnit.Case
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-  test "payment_token#create" do
-    use_cassette "payment_token/create" do
-      {:ok, response} = Checkout.PaymentToken.create(%{value: 100, currency: "USD", chargeMode: 3})
-      refute response == %{}
-    end
-  end
-
-  test "payment_token#update" do
-    use_cassette "payment_token/update" do
-      {:ok, response} = Checkout.PaymentToken.update("pay_tok_5a010daa-4a30-4171-a8e9-8ae0c6de1c68", %{trackId: "TRK12345"})
-      assert response == %{"message" => "ok"}
-    end
-  end
-
   test "payment_token#visa_checkout" do
     use_cassette "payment_token/visa_checkout" do
       {:ok, response} = Checkout.PaymentToken.visa_checkout("6937148828912356701")
