@@ -5,16 +5,6 @@ defmodule Checkout.Charge do
 
   @endpoint "payments"
 
-  def build_params(params, source) do
-    params
-    |> Map.put(:amount, Map.get(params, :value))
-    |> Map.put(:source, source)
-  end
-
-  def payment_request(method, params, source) when method in [:post, :get] do
-    Checkout.make_request(method, @endpoint, build_params(params, source))
-  end
-
   @doc """
   Create a Charge with Card ID.
 
@@ -32,10 +22,8 @@ defmodule Checkout.Charge do
   })
   ```
   """
-  def create(%{cardId: card_id} = params) when not is_nil(card_id) do
-    source = %{type: "id", id: card_id}
-
-    payment_request(:post, params, source)
+  def create(%{source: %{type: "id", cardId: card_id}} = params) when not is_nil(card_id) do
+    Checkout.make_request(:post, @endpoint, params)
   end
 
   @doc """
@@ -54,13 +42,8 @@ defmodule Checkout.Charge do
     })
   ```
   """
-  def create(%{cardToken: card_token} = params) do
-    source = %{
-      type: "token",
-      token: card_token
-    }
-
-    payment_request(:post, params, source)
+  def create(%{source: %{type: "token", cardToken: card_token}} = params) when not is_nil(card_token) do
+    Checkout.make_request(:post, @endpoint, params)
   end
 
   @doc """
@@ -91,7 +74,7 @@ defmodule Checkout.Charge do
       cvv: Map.get(card, :cvv)
     }
 
-    payment_request(:post, params, source)
+    Checkout.make_request(:post, @endpoint, Map.put(params, :source, source))
   end
 
   @doc """
@@ -111,9 +94,12 @@ defmodule Checkout.Charge do
   ```
   """
   def create(params) do
-    source = %{type: "customer"}
-
-    payment_request(:post, params, source)
+    source = %{
+      type: "customer",
+      id: Map.get(params, :customerId),
+      email: Map.get(params, :email)
+    }
+    Checkout.make_request(:post, @endpoint, Map.put(params, :source, source))
   end
 
   @doc """
@@ -186,24 +172,5 @@ defmodule Checkout.Charge do
   """
   def history(id) do
     Checkout.make_request(:get, "#{@endpoint}/#{id}/actions")
-  end
-
-  @doc """
-  Create an Alternative Payment Charge
-
-  ## Example
-  ```
-    Checkout.Charge.localpayment(%{
-      email: "test@email.com",
-      localPayment: %{
-        lppId: "lpp_19",
-        userData: %{}
-      },
-      paymentToken: "pay_tok_UUID"
-    })
-  ```
-  """
-  def localpayment(params) do
-    Checkout.make_request(:post, "#{@endpoint}/localpayment", params)
   end
 end
