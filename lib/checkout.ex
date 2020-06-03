@@ -40,10 +40,9 @@ defmodule Checkout do
     end
   end
 
-  def make_request(method, endpoint, body \\ "", headers \\ [], options \\ []) do
+  def make_request(method, endpoint, body \\ "", headers \\ [], options \\ [ssl: [{:versions, [:"tlsv1.2", :"tlsv1.1", :tlsv1]}]]) do
     options = Keyword.put(options, :recv_timeout, 30_000)
     {:ok, response} = request(method, endpoint, body, headers, options)
-
     case response.body do
       {:error, _} = err -> err
       _ -> handle_response(response)

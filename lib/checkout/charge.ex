@@ -41,43 +41,23 @@ defmodule Checkout.Charge do
       reference: "TRK12345"
     })
   ```
-  """
-  def create(%{source: %{type: "token", cardToken: card_token}} = params) when not is_nil(card_token) do
-    Checkout.make_request(:post, @endpoint, params)
-  end
-
-  @doc """
   Create a Charge with Full Card.
 
   ## Example
   ```
     Checkout.Charge.create(%{
       source: %{
-        type:"card",
+        type: "card",
         number: "4242424242424242",
         expiry_month: 9,
         expiry_year: 2019,
         cvv: "100"
       },
       amount: 2000,
-      currency:"USD",
+      currency: "USD",
       reference: "TRK12345"
     })
   ```
-  """
-  def create(%{card: card} = params) when is_map(card) do
-    source = %{
-      type: "card",
-      number: Map.get(card, :number),
-      expiry_month: Map.get(card, :expiryMonth),
-      expiry_year: Map.get(card, :expiryYear),
-      cvv: Map.get(card, :cvv)
-    }
-
-    Checkout.make_request(:post, @endpoint, Map.put(params, :source, source))
-  end
-
-  @doc """
   Create a Charge with Default card.
 
   ## Example
@@ -94,12 +74,7 @@ defmodule Checkout.Charge do
   ```
   """
   def create(params) do
-    source = %{
-      type: "customer",
-      id: Map.get(params, :customerId),
-      email: Map.get(params, :email)
-    }
-    Checkout.make_request(:post, @endpoint, Map.put(params, :source, source))
+    Checkout.make_request(:post, @endpoint, params)
   end
 
   @doc """

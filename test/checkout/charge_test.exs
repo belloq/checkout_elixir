@@ -46,13 +46,13 @@ defmodule Checkout.ChargeTest do
   test "charge#create_with_full_card" do
     use_cassette "charge/create_with_full_card" do
       {:ok, response} = Checkout.Charge.create(%{
-        email: "test@example.org",
-        value: 100,
+        amount: 100,
         currency: "USD",
-        card: %{
+        source: %{
+          type: "card",
           number: "4242424242424242",
-          expiryMonth: 6,
-          expiryYear: 2018,
+          expiry_month: "08",
+          expiry_year: "2022",
           cvv: 100
         }
       })
