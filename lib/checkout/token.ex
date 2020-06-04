@@ -22,7 +22,7 @@ defmodule Checkout.Token do
     })
   ```
   """
-  def apple_pay(token_data) do
-    Checkout.make_request(:post, @endpoint, %{type: "applepay", token_data: token_data}, false)
+  def create(params) do
+    Checkout.make_request(:post, @endpoint, params, false)
   end
 end
