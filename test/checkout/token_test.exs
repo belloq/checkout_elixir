@@ -1,18 +1,10 @@
-defmodule Checkout.PaymentTokenTest do
+defmodule Checkout.TokenTest do
   use ExUnit.Case
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-  test "payment_token#visa_checkout" do
-    use_cassette "payment_token/visa_checkout" do
-      {:ok, response} = Checkout.PaymentToken.visa_checkout("6937148828912356701")
-      refute response == %{}
-      refute response["id"] == nil
-    end
-  end
-
   test "payment_token#apple_pay" do
-    use_cassette "payment_token/apple_pay" do
-      {:ok, response} = Checkout.PaymentToken.apple_pay(%{
+    # use_cassette "payment_token/apple_pay" do
+      {:ok, response} = Checkout.Token.apple_pay(%{
         version: "EC_v1",
         data: "J/a5u/KyFkXVy4ghO2../+tjRfzjylbX3djJDKPPIBAs=",
         signature: "MIAGCSqGSIb3DQEHAqCAMI..Ld2uMYqksJoO5lMlwAAAAAAAA==",
@@ -26,6 +18,6 @@ defmodule Checkout.PaymentTokenTest do
       })
       refute response == %{}
       refute response["token"] == nil
-    end
+    # end
   end
 end

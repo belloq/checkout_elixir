@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "{\"amount\":100,\"currency\":\"USD\",\"source\":{\"token\":\"tok_wpzi5ph5r34uxfgvmxda67myva\",\"type\":\"token\"}}",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "post",
+      "options": {
+        "ssl_options": {
+          "versions": [
+            "tlsv1.2",
+            "tlsv1.1",
+            "tlsv1"
+          ]
+        },
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "https://api.sandbox.checkout.com/payments"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"id\":\"pay_xbmyat6fd3ievkhyomou7grd2q\",\"action_id\":\"act_xbmyat6fd3ievkhyomou7grd2q\",\"amount\":100,\"currency\":\"USD\",\"approved\":true,\"status\":\"Authorized\",\"auth_code\":\"856948\",\"eci\":\"05\",\"scheme_id\":\"876202991167945\",\"response_code\":\"10000\",\"response_summary\":\"Approved\",\"risk\":{\"flagged\":false},\"source\":{\"id\":\"src_4igkfkzeqlte5osukxhn4xzlku\",\"type\":\"card\",\"expiry_month\":8,\"expiry_year\":2022,\"scheme\":\"Visa\",\"last4\":\"9996\",\"fingerprint\":\"9703866BB3DE12260CA34D497AE2FCE0693F9B633C33E1B42E7B9B97FF89D169\",\"bin\":\"454347\",\"card_type\":\"Credit\",\"card_category\":\"Consumer\",\"issuer\":\"STATE BANK OF MAURITIUS, LTD.\",\"issuer_country\":\"MU\",\"product_id\":\"F\",\"product_type\":\"Visa Classic\",\"avs_check\":\"S\",\"cvv_check\":\"Y\"},\"customer\":{\"id\":\"cus_hnarfzzwhpzevpfra7hnvhadkm\"},\"processed_on\":\"2020-06-04T09:33:11Z\",\"processing\":{\"acquirer_transaction_id\":\"9075677550\",\"retrieval_reference_number\":\"012997392719\"},\"_links\":{\"self\":{\"href\":\"https://api.sandbox.checkout.com/payments/pay_xbmyat6fd3ievkhyomou7grd2q\"},\"actions\":{\"href\":\"https://api.sandbox.checkout.com/payments/pay_xbmyat6fd3ievkhyomou7grd2q/actions\"},\"capture\":{\"href\":\"https://api.sandbox.checkout.com/payments/pay_xbmyat6fd3ievkhyomou7grd2q/captures\"},\"void\":{\"href\":\"https://api.sandbox.checkout.com/payments/pay_xbmyat6fd3ievkhyomou7grd2q/voids\"}}}",
+      "headers": {
+        "Date": "Thu, 04 Jun 2020 09:33:11 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "1300",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache",
+        "Expires": "-1",
+        "Location": "https://api.sandbox.checkout.com/payments/pay_xbmyat6fd3ievkhyomou7grd2q",
+        "Access-Control-Allow-Headers": "Origin,X-Requested-With,Content-Type,Accept,X-AuthToken,Access-Control-Request-Method,Access-Control-Allow-Methods,Access-Control-Request-Headers,authorization,X_Auth_Credentials",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Allow-Origin": "*",
+        "Product": "Gateway",
+        "Cko-Version": "3.38.3",
+        "Cko-Request-Id": "7193d1b8-e5a7-484c-b099-6a6c7ab2400a",
+        "Access-Control-Request-Method": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Request-Headers": "authorization"
+      },
+      "status_code": 201,
+      "type": "ok"
+    }
+  }
+]

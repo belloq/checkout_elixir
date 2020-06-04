@@ -1,4 +1,5 @@
-defmodule Checkout.PaymentToken do
+defmodule Checkout.Token do
+  @endpoint "tokens"
   @doc """
   Create a Payment Token with the given payment data.
 
@@ -22,6 +23,6 @@ defmodule Checkout.PaymentToken do
   ```
   """
   def apple_pay(token_data) do
-    Checkout.make_request(:post, "tokens", %{type: "applepay", token_data: token_data}, false)
+    Checkout.make_request(:post, @endpoint, %{type: "applepay", token_data: token_data}, false)
   end
 end

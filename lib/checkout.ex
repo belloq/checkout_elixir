@@ -73,6 +73,7 @@ defmodule Checkout do
       400 -> {:error, response.body}
       401 -> {:error, :unauthorized}
       404 -> {:error, :not_found}
+      422 -> {:error, response.body}
     end
   end
 end

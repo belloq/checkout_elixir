@@ -1,0 +1,46 @@
+[
+  {
+    "request": {
+      "body": "{\"amount\":6500,\"currency\":\"USD\",\"source\":{\"cvv\":\"100\",\"id\":\"src_1234\",\"type\":\"id\"}}",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "post",
+      "options": {
+        "ssl_options": {
+          "versions": [
+            "tlsv1.2",
+            "tlsv1.1",
+            "tlsv1"
+          ]
+        },
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "https://api.sandbox.checkout.com/payments"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"request_id\":\"ed3c92e2-0e16-42e3-a24c-e994ae1187d4\",\"error_type\":\"request_invalid\",\"error_codes\":[\"source_id_invalid\"]}",
+      "headers": {
+        "Date": "Thu, 04 Jun 2020 09:35:51 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "120",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache",
+        "Expires": "-1",
+        "Access-Control-Allow-Headers": "Origin,X-Requested-With,Content-Type,Accept,X-AuthToken,Access-Control-Request-Method,Access-Control-Allow-Methods,Access-Control-Request-Headers,authorization,X_Auth_Credentials",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Allow-Origin": "*",
+        "Product": "Gateway",
+        "Cko-Version": "3.38.3",
+        "Cko-Request-Id": "ed3c92e2-0e16-42e3-a24c-e994ae1187d4",
+        "Access-Control-Request-Method": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Request-Headers": "authorization"
+      },
+      "status_code": 422,
+      "type": "ok"
+    }
+  }
+]
