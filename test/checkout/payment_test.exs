@@ -52,7 +52,7 @@ defmodule Checkout.PaymentTest do
   end
 
   test "payment#create_with_full_card" do
-    # use_cassette "payment/create_with_full_card" do
+    use_cassette "payment/create_with_full_card" do
       {:ok, response} = Checkout.Payment.create(%{
         amount: 100,
         currency: "USD",
@@ -67,7 +67,7 @@ defmodule Checkout.PaymentTest do
 
       refute response == %{}
       refute response["id"] == nil
-    # end
+    end
   end
 
   test "payment#create_with_default" do
