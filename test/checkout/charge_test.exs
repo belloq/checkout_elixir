@@ -86,14 +86,6 @@ defmodule Checkout.ChargeTest do
     end
   end
 
-  test "charge#update" do
-    use_cassette "charge/update" do
-      {:ok, response} = Checkout.Charge.update("charge_B41BEAAC175U76BD3EE1", %{description: "charge updated"})
-
-      assert response == %{"message" => "ok"}
-    end
-  end
-
   test "charge#capture" do
     use_cassette "charge/capture" do
       {:ok, response} = Checkout.Charge.capture("charge_B41BEAAC175U76BD3EE1")

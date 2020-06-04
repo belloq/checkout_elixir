@@ -85,18 +85,6 @@ defmodule Checkout.Charge do
   end
 
   @doc """
-  Update a Charge with the given parameters.
-
-  ## Example
-  ```
-    Checkout.Charge.update("charge_ID", %{description: "charge updated"})
-  ```
-  """
-  def update(id, params) do
-    Checkout.make_request(:put, "#{@endpoint}/#{id}", params)
-  end
-
-  @doc """
   Capture a Charge with the specified Charge ID.
 
   ## Example
