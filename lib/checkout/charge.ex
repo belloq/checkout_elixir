@@ -60,63 +60,14 @@ defmodule Checkout.Charge do
     Checkout.Charge.create(%{
   	  source: %{
         type: "customer",
-        id: "cus_dxbrk2ruktbutlnbtilhv2qyzm",
+        id: "cus_lmxvhq5nzgmudlm2ovnxpzsig4",
       },
       amount: 2000,
-      currency:"USD",
-      reference: "TRK12345"
+      currency: "USD"
     })
   ```
   """
   def create(params) do
     Checkout.make_request(:post, @endpoint, params)
-  end
-
-  @doc """
-  Retrieve a given Charge with the specified Charge ID or Payment Token.
-
-  ## Example
-  ```
-    Checkout.Charge.get("charge_ID")
-  ```
-  """
-  def get(id) do
-    Checkout.make_request(:get, "#{@endpoint}/#{id}")
-  end
-
-  @doc """
-  Void a Charge with the specified Charge ID.
-
-  ## Example
-  ```
-    Checkout.Charge.void("charge_ID")
-  ```
-  """
-  def void(id) do
-    Checkout.make_request(:post, "#{@endpoint}/#{id}/voids")
-  end
-
-  @doc """
-  Refund a Charge with the specified Charge ID.
-
-  ## Example
-  ```
-    Checkout.Charge.refund("charge_ID")
-  ```
-  """
-  def refund(id) do
-    Checkout.make_request(:post, "#{@endpoint}/#{id}/refunds")
-  end
-
-  @doc """
-  Retrieve a given Charge History with the specified Charge ID.
-
-  ## Example
-  ```
-    Checkout.Charge.history("charge_ID")
-  ```
-  """
-  def history(id) do
-    Checkout.make_request(:get, "#{@endpoint}/#{id}/actions")
   end
 end
