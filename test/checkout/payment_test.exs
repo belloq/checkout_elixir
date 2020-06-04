@@ -71,15 +71,18 @@ defmodule Checkout.PaymentTest do
   end
 
   test "payment#create_with_default" do
-    # use_cassette "payment/create_with_default" do
+    use_cassette "payment/create_with_default" do
       {:ok, response} = Checkout.Payment.create(%{
-        email: "test@example.org",
-        value: 100,
+        source: %{
+          type: "customer",
+          email: "test@example.org"
+        },
         currency: "USD",
+        amount: 100
       })
 
       refute response == %{}
       refute response["id"] == nil
-    # end
+    end
   end
 end
