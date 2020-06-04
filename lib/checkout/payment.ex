@@ -37,29 +37,30 @@ defmodule Checkout.Payment do
 
   ## Example
   ```
-    Checkout.Payment.create(%{
-      source: %{
-        type: "card",
-        number: "4242424242424242",
-        expiry_month: 8,
-        expiry_year: 2022
-      },
-      amount: 2000,
-      currency: "USD",
-    })
+  Checkout.Payment.create(%{
+    amount: 100,
+    currency: "USD",
+    source: %{
+      type: "card",
+      number: "4242424242424242",
+      expiry_month: "08",
+      expiry_year: "2022",
+      cvv: 100
+    }
+  })
   ```
   Create a Payment with Default card.
 
   ## Example
   ```
-    Checkout.Payment.create(%{
-  	  source: %{
-        type: "customer",
-        id: "cus_lmxvhq5nzgmudlm2ovnxpzsig4",
-      },
-      amount: 2000,
-      currency: "USD"
-    })
+  Checkout.Payment.create(%{
+    source: %{
+      type: "customer",
+      email: "test@example.org"
+    },
+    currency: "USD",
+    amount: 100
+  })
   ```
   """
   def create(params) do
