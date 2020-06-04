@@ -1,6 +1,6 @@
 defmodule Checkout.Payment do
   @moduledoc """
-  Checkout API reference: https://archive.docs.checkout.com/docs/capture_a_payment
+  Checkout API reference: https://api-reference.checkout.com/#tag/Payments
   """
 
   @endpoint "payments"

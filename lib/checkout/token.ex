@@ -3,7 +3,7 @@ defmodule Checkout.Token do
   @doc """
   Create a Payment Token with the given payment data.
 
-  Checkout API reference: https://docs.checkout.com/docs/apple-pay
+  Checkout API reference: https://api-reference.checkout.com/#tag/Tokens
 
   ## Example
   ```
