@@ -5,9 +5,12 @@ defmodule Checkout.ChargeTest do
   test "charge#create_with_id" do
     use_cassette "charge/create_with_id" do
       {:ok, response} = Checkout.Charge.create(%{
-        cardId: "card_9F2123D1-4F25-4F3D-AD68-344C01C28B59",
-        email: "test@example.org",
-        value: 100,
+        source: %{
+          type: "id",
+          id: "src_en2w67spfevehol7rh6m5zokeq",
+          cvv: "100",
+        },
+        amount: 6500,
         currency: "USD",
       })
 

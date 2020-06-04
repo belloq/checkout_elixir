@@ -13,20 +13,15 @@ defmodule Checkout.Charge do
   Checkout.Charge.create(%{
     source: %{
       type: "id",
-      id: "src_i3ywxkcgu5cevigmdxoy6km5je",
+      id: "src_en2w67spfevehol7rh6m5zokeq",
       cvv: "100",
     },
+    email: "test@example.org",
     amount: 6500,
     currency: "USD",
     reference: "ORD-5023-4E89"
   })
   ```
-  """
-  def create(%{source: %{type: "id", cardId: card_id}} = params) when not is_nil(card_id) do
-    Checkout.make_request(:post, @endpoint, params)
-  end
-
-  @doc """
   Create a Payment with Card Token.
 
   ## Example
@@ -49,8 +44,8 @@ defmodule Checkout.Charge do
       source: %{
         type: "card",
         number: "4242424242424242",
-        expiry_month: 9,
-        expiry_year: 2019,
+        expiry_month: 8,
+        expiry_year: 2022,
         cvv: "100"
       },
       amount: 2000,
