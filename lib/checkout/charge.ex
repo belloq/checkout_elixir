@@ -85,18 +85,6 @@ defmodule Checkout.Charge do
   end
 
   @doc """
-  Capture a Charge with the specified Charge ID.
-
-  ## Example
-  ```
-    Checkout.Charge.capture("charge_ID")
-  ```
-  """
-  def capture(id) do
-    Checkout.make_request(:post, "#{@endpoint}/#{id}/captures")
-  end
-
-  @doc """
   Void a Charge with the specified Charge ID.
 
   ## Example

@@ -86,15 +86,6 @@ defmodule Checkout.ChargeTest do
     end
   end
 
-  test "charge#capture" do
-    use_cassette "charge/capture" do
-      {:ok, response} = Checkout.Charge.capture("charge_B41BEAAC175U76BD3EE1")
-
-      refute response == %{}
-      assert response["status"] == "Captured"
-    end
-  end
-
   test "charge#void" do
     use_cassette "charge/void" do
       {:ok, response} = Checkout.Charge.void("charge_B41BEAAC175U76BD3EE1")
