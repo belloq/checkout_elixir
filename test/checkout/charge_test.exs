@@ -80,7 +80,7 @@ defmodule Checkout.ChargeTest do
 
   test "charge#get" do
     use_cassette "charge/get" do
-      {:ok, response} = Checkout.Charge.get("charge_B41BEAAC175U76BD3EE1")
+      {:ok, response} = Checkout.Charge.get("pay_5dj3tyjoawpe3crfc7k2kvx7ye")
 
       refute response == %{}
     end
