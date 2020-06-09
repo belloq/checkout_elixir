@@ -18,7 +18,7 @@ defmodule Checkout.Token do
         publicKeyHash: "tqYV+tmG9aMh+l/K6cicUnPqkb1gUiLjSTM9gEz6Nl0=",
         transactionId: "3cee89679130a4b2617c76118a1c62fd400cd45b49dc0916d5b951b560cd17b4"
       }
-    }
+    })
   ```
   """
   def create(params) do
