@@ -1,8 +1,8 @@
 defmodule Checkout do
   use HTTPoison.Base
 
-  @live_url "https://api2.checkout.com/v2/"
-  @sandbox_url "https://sandbox.checkout.com/api2/v2/"
+  @live_url "https://api.checkout.com/"
+  @sandbox_url "https://api.sandbox.checkout.com/"
 
   def process_url(endpoint) do
     url =
@@ -40,10 +40,9 @@ defmodule Checkout do
     end
   end
 
-  def make_request(method, endpoint, body \\ "", headers \\ [], options \\ []) do
+  def make_request(method, endpoint, body \\ "", headers \\ [], options \\ [ssl: [{:versions, [:"tlsv1.2", :"tlsv1.1", :tlsv1]}]]) do
     options = Keyword.put(options, :recv_timeout, 30_000)
     {:ok, response} = request(method, endpoint, body, headers, options)
-
     case response.body do
       {:error, _} = err -> err
       _ -> handle_response(response)
@@ -69,9 +68,12 @@ defmodule Checkout do
   defp handle_response(response) do
     case response.status_code do
       200 -> {:ok, response.body}
+      201 -> {:ok, response.body}
+      202 -> {:ok, response.body}
       400 -> {:error, response.body}
       401 -> {:error, :unauthorized}
       404 -> {:error, :not_found}
+      422 -> {:error, response.body}
     end
   end
 end
