@@ -63,7 +63,7 @@ defmodule Checkout.Payment do
   })
   ```
   """
-  def create(params) do
-    Checkout.make_request(:post, @endpoint, params)
+  def create(params, header_opts \\ []) do
+    Checkout.make_request(:post, @endpoint, params, header_opts)
   end
 end

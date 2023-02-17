@@ -4,7 +4,7 @@ defmodule CheckoutElixir.Mixfile do
   def project do
     [
       app: :checkout_elixir,
-      version: "2.0.0",
+      version: "2.1.0",
       elixir: "~> 1.5",
       start_permanent: Mix.env == :prod,
       deps: deps(),

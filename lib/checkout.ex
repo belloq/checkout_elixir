@@ -5,25 +5,17 @@ defmodule Checkout do
   @sandbox_url "https://api.sandbox.checkout.com/"
 
   def process_url(endpoint) do
-    url =
-      api_url()
-      |> URI.parse
-      |> remove_path_if_needed(endpoint)
-      |> URI.to_string
-
-    url <> endpoint
+    api_url()
+    |> URI.parse()
+    |> remove_path_if_needed(endpoint)
+    |> URI.to_string()
+    |> Kernel.<>(endpoint)
   end
 
-  def process_request_headers(secret_key \\ true) do
+  def process_request_headers(opts) do
     [
       {"Content-Type", "application/json;charset=UTF-8"},
-      {"Authorization",
-        if secret_key do
-          Application.get_env(:checkout_elixir, :secret_key, System.get_env("CHECKOUT_SECRET_KEY"))
-        else
-          Application.get_env(:checkout_elixir, :public_key, System.get_env("CHECKOUT_PUBLIC_KEY"))
-        end
-      }
+      {"Authorization", get_api_key(opts)}
     ]
   end
 
@@ -33,7 +25,7 @@ defmodule Checkout do
 
   def process_response_body(body) do
     body
-    |> Jason.decode
+    |> Jason.decode()
     |> case do
       {:ok, data} -> data
       {:error, _} -> {:error, body}
@@ -44,12 +36,34 @@ defmodule Checkout do
     options =
       options
       |> Keyword.put(:recv_timeout, 30_000)
-      |> Keyword.put(:ssl, [{:versions, [:"tlsv1.2", :"tlsv1.1", :tlsv1]}])
+      |> Keyword.put(:ssl, [{:versions, [:"tlsv1.2", :"tlsv1.3", :"tlsv1.1", :tlsv1]}])
     {:ok, response} = request(method, endpoint, body, headers, options)
     case response.body do
       {:error, _} = err -> err
       _ -> handle_response(response)
     end
+  end
+
+  defp get_api_key(opts) do
+    opts
+    |> Keyword.get(:public, false)
+    |> case do
+      true -> :public
+      false -> :secret
+    end
+    |> get_api_key(opts)
+  end
+
+  defp get_api_key(:public, opts) do
+    get_api_key(:public_key, "CHECKOUT_PUBLIC_KEY", opts)
+  end
+
+  defp get_api_key(:secret, opts) do
+    get_api_key(:secret_key, "CHECKOUT_SECRET_KEY", opts)
+  end
+
+  defp get_api_key(key, env_var, opts) do
+    Keyword.get(opts, key, Application.get_env(:checkout_elixir, key, System.get_env(env_var)))
   end
 
   defp api_url do
