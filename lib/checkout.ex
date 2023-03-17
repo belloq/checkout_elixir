@@ -15,7 +15,7 @@ defmodule Checkout do
   def process_request_headers(opts) do
     [
       {"Content-Type", "application/json;charset=UTF-8"},
-      {"Authorization", get_api_key(opts)}
+      {"Authorization", "Bearer #{get_api_key(opts)}"}
     ]
   end
 
