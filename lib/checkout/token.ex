@@ -22,7 +22,7 @@ defmodule Checkout.Token do
   ```
   """
   def create(params, header_opts \\ []) do
-    header_opts = Keyword.merge(header_opts, [public: true])
+    header_opts = Keyword.merge(header_opts, public: true)
     Checkout.make_request(:post, @endpoint, params, header_opts)
   end
 end

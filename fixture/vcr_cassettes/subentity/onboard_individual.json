@@ -1,0 +1,41 @@
+[
+  {
+    "request": {
+      "body": "{\"contact_details\":{\"email_addresses\":{\"primary\":\"email@test.com\"},\"phone\":{\"number\":\"2345678910\"}},\"individual\":{\"date_of_birth\":{\"day\":1,\"month\":1,\"year\":1980},\"first_name\":\"John\",\"last_name\":\"Doe\",\"place_of_birth\":{\"country\":\"US\"},\"registered_address\":{\"address_line1\":\"123 Main St.\",\"address_line2\":\"Suite 100\",\"city\":\"San Francisco\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"94105\"},\"trading_name\":\"Test individual company\"},\"profile\":{\"default_holding_currency\":\"USD\",\"holding_currencies\":[\"USD\"],\"mccs\":[\"8299\"],\"urls\":[\"https://www.test.com\"]},\"reference\":\"test-individual\"}",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "post",
+      "options": {
+        "ssl_options": {
+          "versions": {
+            "tlsv1.2": true,
+            "tlsv1.3": true,
+            "tlsv1.1": true,
+            "tlsv1": true
+          }
+        },
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "https://api.sandbox.checkout.com/accounts/entities"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"id\":\"ent_cfqu2i4zmirobd7lejn5flu6au\",\"reference\":\"test-individual\",\"status\":\"pending\",\"requirements_due\":[],\"capabilities\":{\"payments\":{\"enabled\":false,\"available\":true},\"payouts\":{\"enabled\":false,\"available\":true},\"issuing\":{\"enabled\":false,\"available\":false}},\"_links\":{\"self\":{\"href\":\"https://api.sandbox.checkout.com/accounts/entities/ent_cfqu2i4zmirobd7lejn5flu6au\"}}}",
+      "headers": {
+        "Date": "Mon, 17 Jul 2023 19:12:26 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Etag": "\"Y3Y9MCZydj0w\"",
+        "Location": "https://api.sandbox.checkout.com/accounts/entities/ent_cfqu2i4zmirobd7lejn5flu6au",
+        "Cko-Request-Id": "8e767404-0077-4d80-8051-ac3cb99db1e5",
+        "Cko-Version": "1.0",
+        "Strict-Transport-Security": "max-age=16000000; includeSubDomains; preload;",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 201,
+      "type": "ok"
+    }
+  }
+]

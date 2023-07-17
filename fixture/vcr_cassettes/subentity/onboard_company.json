@@ -1,0 +1,41 @@
+[
+  {
+    "request": {
+      "body": "{\"company\":{\"legal_name\":\"Test Inc.\",\"principal_address\":{\"address_line1\":\"123 Main St.\",\"address_line2\":\"Suite 100\",\"city\":\"San Francisco\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"94105\"},\"registered_address\":{\"address_line1\":\"123 Main St.\",\"address_line2\":\"Suite 100\",\"city\":\"San Francisco\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"94105\"},\"representatives\":[{\"address\":{\"address_line1\":\"123 Main St.\",\"address_line2\":\"Suite 100\",\"city\":\"San Francisco\",\"country\":\"US\",\"state\":\"CA\",\"zip\":\"94105\"},\"date_of_birth\":{\"day\":1,\"month\":1,\"year\":1980},\"first_name\":\"John\",\"last_name\":\"Doe\",\"phone\":{\"number\":\"2345678910\"},\"place_of_birth\":{\"country\":\"US\"}}],\"trading_name\":\"Test company\"},\"contact_details\":{\"email_addresses\":{\"primary\":\"email@test.com\"},\"phone\":{\"number\":\"2345678910\"}},\"profile\":{\"default_holding_currency\":\"USD\",\"holding_currencies\":[\"USD\"],\"mccs\":[\"8299\"],\"urls\":[\"https://www.test.com\"]},\"reference\":\"test-company-3\"}",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "post",
+      "options": {
+        "ssl_options": {
+          "versions": {
+            "tlsv1.2": true,
+            "tlsv1.3": true,
+            "tlsv1.1": true,
+            "tlsv1": true
+          }
+        },
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "https://api.sandbox.checkout.com/accounts/entities"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"id\":\"ent_b66rtcrtd2l7vkx2ldnmt6o2we\",\"reference\":\"test-company-3\",\"status\":\"pending\",\"requirements_due\":[],\"capabilities\":{\"payments\":{\"enabled\":false,\"available\":true},\"payouts\":{\"enabled\":false,\"available\":true},\"issuing\":{\"enabled\":false,\"available\":false}},\"_links\":{\"self\":{\"href\":\"https://api.sandbox.checkout.com/accounts/entities/ent_b66rtcrtd2l7vkx2ldnmt6o2we\"}}}",
+      "headers": {
+        "Date": "Mon, 17 Jul 2023 19:06:32 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Etag": "\"Y3Y9MCZydj0w\"",
+        "Location": "https://api.sandbox.checkout.com/accounts/entities/ent_b66rtcrtd2l7vkx2ldnmt6o2we",
+        "Cko-Request-Id": "8351f306-7b9f-4d20-b87f-a5006aa310f2",
+        "Cko-Version": "1.0",
+        "Strict-Transport-Security": "max-age=16000000; includeSubDomains; preload;",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 201,
+      "type": "ok"
+    }
+  }
+]
