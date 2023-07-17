@@ -6,7 +6,7 @@ defmodule CheckoutElixir.Mixfile do
       app: :checkout_elixir,
       version: "2.2.0",
       elixir: "~> 1.5",
-      start_permanent: Mix.env == :prod,
+      start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: description(),
       package: package()
@@ -26,7 +26,9 @@ defmodule CheckoutElixir.Mixfile do
       {:httpoison, "~> 1.0"},
       {:jason, "~> 1.1"},
       {:ex_doc, "~> 0.14", only: :dev},
-      {:exvcr, "~> 0.10", only: :test}
+      {:exvcr, "~> 0.10", only: :test},
+      {:dialyxir, "~> 1.2", only: [:dev], runtime: false},
+      {:excoveralls, "~> 0.14.1", only: :test}
     ]
   end
 

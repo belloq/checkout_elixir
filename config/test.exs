@@ -1,9 +1,7 @@
-use Mix.Config
+import Config
 
 config :checkout_elixir,
   sandbox: true
 
-config :exvcr, [
+config :exvcr,
   filter_request_headers: ["Authorization"]
-]
-
