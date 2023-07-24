@@ -1,0 +1,40 @@
+[
+  {
+    "request": {
+      "body": "null",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "ssl_options": {
+          "versions": {
+            "tlsv1.2": true,
+            "tlsv1.3": true,
+            "tlsv1.1": true,
+            "tlsv1": true
+          }
+        },
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "https://api.sandbox.checkout.com/accounts/entities/ent_b66rtcrtd2l7vkx2ldnmt6o2we"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"id\":\"ent_b66rtcrtd2l7vkx2ldnmt6o2we\",\"reference\":\"test-company-3\",\"status\":\"active\",\"instruments\":[],\"requirements_due\":[],\"contact_details\":{\"phone\":{\"number\":\"2345678910\"},\"email_addresses\":{\"primary\":\"email@test.com\"}},\"profile\":{\"default_holding_currency\":\"USD\",\"holding_currencies\":[\"USD\"],\"urls\":[\"https://www.test.com\"],\"mccs\":[\"8299\"]},\"company\":{\"legal_name\":\"Test Inc.\",\"trading_name\":\"Test company\",\"principal_address\":{\"address_line1\":\"123 Main St.\",\"address_line2\":\"Suite 100\",\"city\":\"San Francisco\",\"state\":\"CA\",\"zip\":\"94105\",\"country\":\"US\"},\"registered_address\":{\"address_line1\":\"123 Main St.\",\"address_line2\":\"Suite 100\",\"city\":\"San Francisco\",\"state\":\"CA\",\"zip\":\"94105\",\"country\":\"US\"},\"representatives\":[{\"id\":\"rep_dfwunipjgb57a7iw72udlswzri\",\"address\":{\"address_line1\":\"123 Main St.\",\"address_line2\":\"Suite 100\",\"city\":\"San Francisco\",\"state\":\"CA\",\"zip\":\"94105\",\"country\":\"US\"},\"phone\":{\"number\":\"2345678910\"},\"first_name\":\"John\",\"last_name\":\"Doe\",\"date_of_birth\":{\"day\":1,\"month\":1,\"year\":1980},\"place_of_birth\":{\"country\":\"US\"},\"identification\":{}}]},\"capabilities\":{\"payments\":{\"enabled\":true,\"available\":true},\"payouts\":{\"enabled\":true,\"available\":true},\"issuing\":{\"enabled\":false,\"available\":false}},\"_links\":{\"self\":{\"href\":\"https://api.sandbox.checkout.com/accounts/entities/ent_b66rtcrtd2l7vkx2ldnmt6o2we\"},\"schema\":{\"href\":\"https://api.sandbox.checkout.com/accounts/entities/_schema?schema_version=1.0&resource_type=Entity&type=Company&country=US\"}}}",
+      "headers": {
+        "Date": "Mon, 24 Jul 2023 15:10:08 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Etag": "\"Y3Y9MCZydj0z\"",
+        "Cko-Request-Id": "5285a419-b491-92ea-8f8f-13f850d33a73",
+        "Cko-Version": "1.0",
+        "Strict-Transport-Security": "max-age=16000000; includeSubDomains; preload;",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

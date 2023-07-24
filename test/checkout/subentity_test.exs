@@ -121,4 +121,14 @@ defmodule Checkout.SubentityTest do
       end
     end
   end
+
+  describe "get sub-entity" do
+    test "get sub-entity" do
+      use_cassette "subentity/get" do
+        {:ok, response} = Checkout.Subentity.get("ent_b66rtcrtd2l7vkx2ldnmt6o2we")
+        refute response == %{}
+        refute response["id"] == nil
+      end
+    end
+  end
 end

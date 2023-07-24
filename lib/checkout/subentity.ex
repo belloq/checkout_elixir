@@ -126,6 +126,11 @@ defmodule Checkout.Subentity do
           id: String.t(),
           reference: String.t(),
           status: String.t(),
+          instruments: list(any()),
+          contact_details: contact_details,
+          profile: profile,
+          company: company,
+          individual: individual,
           capabilities: capabilities,
           requirements_due: list(requirement)
         }
@@ -134,6 +139,11 @@ defmodule Checkout.Subentity do
     :id,
     :reference,
     :status,
+    :instruments,
+    :contact_details,
+    :profile,
+    :company,
+    :individual,
     :capabilities,
     :requirements_due
   ]
@@ -141,8 +151,13 @@ defmodule Checkout.Subentity do
   @doc """
   Onboard a sub-entity.
   """
-  @spec onboard(onboard_params, Keyword.t()) :: {:ok, t} | {:error, map()}
+  @spec onboard(onboard_params, Keyword.t()) :: {:ok, t()} | {:error, map()}
   def onboard(params, header_opts \\ []) do
     Checkout.make_request(:post, @endpoint, params, header_opts)
+  end
+
+  @spec get(String.t(), Keyword.t()) :: {:ok, t()} | {:error, map()}
+  def get(id, header_opts \\ []) do
+    Checkout.make_request(:get, "#{@endpoint}/#{id}", nil, header_opts)
   end
 end
