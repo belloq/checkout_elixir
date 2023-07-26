@@ -1,0 +1,40 @@
+[
+  {
+    "request": {
+      "body": "null",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "ssl_options": {
+          "versions": {
+            "tlsv1.2": true,
+            "tlsv1.3": true,
+            "tlsv1.1": true,
+            "tlsv1": true
+          }
+        },
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "https://api.sandbox.checkout.com/instruments/src_rt5wvrqnuooufeamtaqk2tjhky"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"expiry_month\":5,\"expiry_year\":2046,\"name\":\"gggg\",\"scheme\":\"VISA\",\"last4\":\"4242\",\"bin\":\"424242\",\"card_type\":\"CREDIT\",\"card_category\":\"CONSUMER\",\"issuer_country\":\"GB\",\"product_id\":\"F\",\"product_type\":\"Visa Classic\",\"account_holder\":{\"phone\":{}},\"type\":\"card\",\"id\":\"src_rt5wvrqnuooufeamtaqk2tjhky\",\"fingerprint\":\"96C69B4DADC6CA372DE924CB5B329B8E8BB6A11D706A9E488F15F8C80BC8650F\",\"customer\":{\"default\":false,\"id\":\"cus_l5f5yegwznruxpndoopmvsrjvi\",\"name\":\"Jinx Doe\",\"email\":\"user@domain.com\",\"created_on\":\"0001-01-01T00:00:00\",\"modified_on\":\"0001-01-01T00:00:00\",\"metadata\":{}}}",
+      "headers": {
+        "Date": "Wed, 26 Jul 2023 21:06:13 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "573",
+        "Access-Control-Allow-Headers": "Origin,X-Requested-With,Content-Type,Accept,X-AuthToken,Access-Control-Request-Method,Access-Control-Allow-Methods,Access-Control-Request-Headers,authorization,X_Auth_Credentials",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=16000000; includeSubDomains; preload;"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
