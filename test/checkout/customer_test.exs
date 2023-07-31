@@ -29,5 +29,11 @@ defmodule Checkout.CustomerTest do
                } = response
       end
     end
+
+    test "returns error not found" do
+      use_cassette "customer/get_not_found" do
+        assert {:error, :not_found} = Checkout.Customer.get("not@found.com")
+      end
+    end
   end
 end

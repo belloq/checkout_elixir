@@ -1,0 +1,39 @@
+[
+  {
+    "request": {
+      "body": "null",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "ssl_options": {
+          "versions": {
+            "tlsv1.2": true,
+            "tlsv1.3": true,
+            "tlsv1.1": true,
+            "tlsv1": true
+          }
+        },
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "https://api.sandbox.checkout.com/customers/not@found.com"
+    },
+    "response": {
+      "binary": false,
+      "body": "",
+      "headers": {
+        "Date": "Thu, 27 Jul 2023 20:47:57 GMT",
+        "Content-Length": "0",
+        "Access-Control-Allow-Headers": "Origin,X-Requested-With,Content-Type,Accept,X-AuthToken,Access-Control-Request-Method,Access-Control-Allow-Methods,Access-Control-Request-Headers,authorization,X_Auth_Credentials",
+        "Access-Control-Allow-Methods": "OPTIONS,POST,GET,PUT,DELETE",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=16000000; includeSubDomains; preload;"
+      },
+      "status_code": 404,
+      "type": "ok"
+    }
+  }
+]

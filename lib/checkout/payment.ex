@@ -66,4 +66,9 @@ defmodule Checkout.Payment do
   def create(params, header_opts \\ []) do
     Checkout.make_request(:post, @endpoint, params, header_opts)
   end
+
+  @spec get(String.t(), Keyword.t()) :: {:ok, map()} | {:error, map()}
+  def get(id, header_opts \\ []) do
+    Checkout.make_request(:get, "#{@endpoint}/#{id}", nil, header_opts)
+  end
 end

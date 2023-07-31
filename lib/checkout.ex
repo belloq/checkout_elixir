@@ -38,11 +38,9 @@ defmodule Checkout do
       |> Keyword.put(:recv_timeout, 30_000)
       |> Keyword.put(:ssl, [{:versions, [:"tlsv1.2", :"tlsv1.3", :"tlsv1.1", :tlsv1]}])
 
-    {:ok, response} = request(method, endpoint, body, headers, options)
-
-    case response.body do
+    case request(method, endpoint, body, headers, options) do
       {:error, _} = err -> err
-      _ -> handle_response(response)
+      {:ok, response} -> handle_response(response)
     end
   end
 
@@ -89,6 +87,7 @@ defmodule Checkout do
       200 -> {:ok, response.body}
       201 -> {:ok, response.body}
       202 -> {:ok, response.body}
+      204 -> {:ok, response.body}
       400 -> {:error, response.body}
       401 -> {:error, :unauthorized}
       404 -> {:error, :not_found}
