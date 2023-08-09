@@ -71,4 +71,9 @@ defmodule Checkout.Payment do
   def get(id, header_opts \\ []) do
     Checkout.make_request(:get, "#{@endpoint}/#{id}", nil, header_opts)
   end
+
+  @spec refund(String.t(), map(), Keyword.t()) :: {:ok, map()} | {:error, map()}
+  def refund(id, params, header_opts \\ []) do
+    Checkout.make_request(:post, "#{@endpoint}/#{id}/refunds", params, header_opts)
+  end
 end

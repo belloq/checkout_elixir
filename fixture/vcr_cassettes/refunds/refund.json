@@ -1,0 +1,39 @@
+[
+  {
+    "request": {
+      "body": "{\"amount\":11393,\"amount_allocations\":[{\"amount\":11393,\"commission\":{\"amount\":1393},\"id\":\"ent_mjkatfyucvlw6vlmq26gixivsa\"}]}",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "post",
+      "options": {
+        "ssl_options": {
+          "versions": {
+            "tlsv1.2": true,
+            "tlsv1.3": true,
+            "tlsv1.1": true,
+            "tlsv1": true
+          }
+        },
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "https://api.sandbox.checkout.com/payments/pay_t2ducu2keyyebdsklh3n5vw5km/refunds"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"action_id\":\"act_ozk5vn676rlezjhmau2ysub32u\",\"_links\":{\"payment\":{\"href\":\"https://api.sandbox.checkout.com/payments/pay_t2ducu2keyyebdsklh3n5vw5km\"}}}",
+      "headers": {
+        "Date": "Wed, 09 Aug 2023 15:29:20 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "151",
+        "Cko-Request-Id": "0de7cb38-a1ce-49b1-b7ea-c2334c00fba9",
+        "Cko-Version": "1.257.0+89dc03218",
+        "Strict-Transport-Security": "max-age=16000000; includeSubDomains; preload;"
+      },
+      "status_code": 202,
+      "type": "ok"
+    }
+  }
+]
