@@ -1,0 +1,38 @@
+[
+  {
+    "request": {
+      "body": "null",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "ssl_options": {
+          "versions": {
+            "tlsv1.2": true,
+            "tlsv1.3": true,
+            "tlsv1.1": true,
+            "tlsv1": true
+          }
+        },
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "https://api.sandbox.checkout.com/payments/pay_t2ducu2keyyebdsklh3n5vw5km/actions"
+    },
+    "response": {
+      "binary": false,
+      "body": "[{\"id\":\"act_ozk5vn676rlezjhmau2ysub32u\",\"type\":\"Refund\",\"processed_on\":\"2023-08-09T15:29:20.8186664Z\",\"amount\":11393,\"approved\":true,\"response_code\":\"10000\",\"response_summary\":\"Approved\",\"processing\":{\"acquirer_transaction_id\":\"635058541626563973850\",\"acquirer_reference_number\":\"97888333174098082031800\"}},{\"id\":\"act_kiylak2fib6ufdhasnkxwxx3eu\",\"type\":\"Capture\",\"processed_on\":\"2023-08-08T13:56:48.7966519Z\",\"amount\":11393,\"approved\":true,\"response_code\":\"10000\",\"response_summary\":\"Approved\",\"capture_type\":\"Final\",\"processing\":{\"acquirer_transaction_id\":\"402506904332202826422\",\"acquirer_reference_number\":\"22966033830399455390545\"}},{\"id\":\"act_kaaipcysmg5exaiemnaephg5ci\",\"type\":\"Authorization\",\"processed_on\":\"2023-08-08T13:56:48.5479086Z\",\"amount\":11393,\"approved\":true,\"auth_code\":\"551497\",\"response_code\":\"10000\",\"response_summary\":\"Approved\",\"authorization_type\":\"Final\",\"processing\":{\"acquirer_transaction_id\":\"669096303339459958905\",\"retrieval_reference_number\":\"820285249783\"},\"metadata\":{\"omella_api_env\":\"staging\",\"omella_api_version\":\"2\",\"omella_invoice_id\":\"1779ad35-46a8-45a0-a9ca-6f6d4112f196\",\"omella_order_id\":\"61fefeab-6048-406a-ace0-6fcc7984c2e2\",\"omella_page_id\":\"60ce1380-3796-4c90-961d-0889894dd398\",\"omella_response_id\":\"d7c803ae-7a0b-4ce8-a76c-4083f3a2188d\",\"omella_user_id\":\"2ae17295-7391-4769-bcd3-a089b38c1d18\"},\"marketplace\":{\"sub_entities\":[{\"amount\":11393,\"id\":\"ent_mjkatfyucvlw6vlmq26gixivsa\",\"commission\":{\"amount\":1393}}]},\"amount_allocations\":[{\"amount\":11393,\"id\":\"ent_mjkatfyucvlw6vlmq26gixivsa\",\"commission\":{\"amount\":1393}}]}]",
+      "headers": {
+        "Date": "Thu, 10 Aug 2023 11:59:23 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "1567",
+        "Connection": "close",
+        "Strict-Transport-Security": "max-age=16000000; includeSubDomains; preload;"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

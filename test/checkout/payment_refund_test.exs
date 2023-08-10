@@ -4,7 +4,7 @@ defmodule Checkout.RefundTest do
 
   describe "refund a payment" do
     test "creates a refund" do
-      use_cassette "refunds/refund" do
+      use_cassette "refund/refund" do
         {:ok, response} =
           Checkout.Payment.refund("pay_t2ducu2keyyebdsklh3n5vw5km", %{
             amount: 11393,
