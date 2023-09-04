@@ -66,4 +66,16 @@ defmodule Checkout.Payment do
   def create(params, header_opts \\ []) do
     Checkout.make_request(:post, @endpoint, params, header_opts)
   end
+
+  @doc """
+  Get payment details
+
+  ## Example
+  ```
+  Checkout.Payment.get("pay_mbabizu24mvu3mela5njyhpit4")
+  ```
+  """
+  def get(id) do
+    Checkout.make_request(:get, "#{@endpoint}/#{id}")
+  end
 end
