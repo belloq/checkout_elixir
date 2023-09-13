@@ -4,8 +4,12 @@ defmodule Checkout do
   @live_url "https://api.checkout.com/"
   @sandbox_url "https://api.sandbox.checkout.com/"
 
+  @live_transfers_url "https://transfers.checkout.com/"
+  @sandbox_transfers_url "https://transfers.sandbox.checkout.com/"
+
   def process_url(endpoint) do
-    api_url()
+    endpoint
+    |> api_url()
     |> URI.parse()
     |> remove_path_if_needed(endpoint)
     |> URI.to_string()
@@ -13,10 +17,11 @@ defmodule Checkout do
   end
 
   def process_request_headers(opts) do
-    [
+    opts
+    |> Enum.concat([
       {"Content-Type", "application/json;charset=UTF-8"},
       {"Authorization", "Bearer #{get_api_key(opts)}"}
-    ]
+    ])
   end
 
   def process_request_body(body) do
@@ -66,7 +71,23 @@ defmodule Checkout do
     Keyword.get(opts, key, Application.get_env(:checkout_elixir, key, System.get_env(env_var)))
   end
 
-  defp api_url do
+  defp api_url(endpoint) do
+    if String.starts_with?(endpoint, "transfers") do
+      transfers_url()
+    else
+      base_url()
+    end
+  end
+
+  defp transfers_url do
+    if Application.get_env(:checkout_elixir, :sandbox, false) do
+      @sandbox_transfers_url
+    else
+      @live_transfers_url
+    end
+  end
+
+  defp base_url do
     if Application.get_env(:checkout_elixir, :sandbox, false) do
       @sandbox_url
     else

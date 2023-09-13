@@ -1,0 +1,40 @@
+[
+  {
+    "request": {
+      "body": "null",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "ssl_options": {
+          "versions": {
+            "tlsv1.2": true,
+            "tlsv1.3": true,
+            "tlsv1.1": true,
+            "tlsv1": true
+          }
+        },
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "https://transfers.sandbox.checkout.com/transfers/not_tra_id"
+    },
+    "response": {
+      "binary": false,
+      "body": "",
+      "headers": {
+        "Date": "Wed, 13 Sep 2023 14:29:56 GMT",
+        "Content-Length": "0",
+        "Connection": "close",
+        "Api-Supported-Versions": "1.0",
+        "Cko-Request-Id": "b7199a7d-05f2-450a-85b4-7421d889472a",
+        "Cko-Version": "1.0",
+        "Strict-Transport-Security": "max-age=16000000; includeSubDomains; preload;"
+      },
+      "status_code": 404,
+      "type": "ok"
+    }
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "request": {
+      "body": "null",
+      "headers": {
+        "Content-Type": "application/json;charset=UTF-8",
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": {
+        "ssl_options": {
+          "versions": {
+            "tlsv1.2": true,
+            "tlsv1.3": true,
+            "tlsv1.1": true,
+            "tlsv1": true
+          }
+        },
+        "recv_timeout": 30000
+      },
+      "request_body": "",
+      "url": "https://transfers.sandbox.checkout.com/transfers/tra_id"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"id\":\"tra_id\",\"reference\":\"pay_id\",\"requested_on\":\"2023-09-11T20:46:56.4066402Z\",\"status\":\"completed\",\"transfer_type\":\"commission\",\"destination\":{\"entity_id\":\"ent_id\"},\"reason_codes\":[],\"source\":{\"amount\":10000,\"currency\":\"USD\",\"entity_id\":\"ent_id\"},\"_links\":{\"self\":{\"href\":\"https://transfers.sandbox.checkout.com/transfers/tra_id\"}}}",
+      "headers": {
+        "Date": "Wed, 13 Sep 2023 13:35:17 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "456",
+        "Connection": "close",
+        "Api-Supported-Versions": "1.0",
+        "Cko-Request-Id": "00e7d6df-3a51-41b6-ac31-8ab531dfd772",
+        "Cko-Version": "1.0",
+        "Strict-Transport-Security": "max-age=16000000; includeSubDomains; preload;"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
