@@ -26,7 +26,7 @@ defmodule CheckoutElixir.Mixfile do
       {:httpoison, "~> 1.0"},
       {:jason, "~> 1.1"},
       {:ex_doc, "~> 0.14", only: :dev},
-      {:exvcr, "~> 0.10", only: :test},
+      {:exvcr, "~> 0.11", only: :test},
       {:dialyxir, "~> 1.2", only: [:dev], runtime: false},
       {:excoveralls, "~> 0.14.1", only: :test}
     ]

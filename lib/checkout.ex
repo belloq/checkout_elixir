@@ -7,6 +7,9 @@ defmodule Checkout do
   @live_transfers_url "https://transfers.checkout.com/"
   @sandbox_transfers_url "https://transfers.sandbox.checkout.com/"
 
+  @live_balances_url "https://balances.checkout.com/"
+  @sandbox_balances_url "https://balances.sandbox.checkout.com/"
+
   def process_url(endpoint) do
     endpoint
     |> api_url()
@@ -72,10 +75,10 @@ defmodule Checkout do
   end
 
   defp api_url(endpoint) do
-    if String.starts_with?(endpoint, "transfers") do
-      transfers_url()
-    else
-      base_url()
+    cond do
+      String.starts_with?(endpoint, "transfers") -> transfers_url()
+      String.starts_with?(endpoint, "balances") -> balances_url()
+      true -> base_url()
     end
   end
 
@@ -84,6 +87,14 @@ defmodule Checkout do
       @sandbox_transfers_url
     else
       @live_transfers_url
+    end
+  end
+
+  defp balances_url do
+    if Application.get_env(:checkout_elixir, :sandbox, false) do
+      @sandbox_balances_url
+    else
+      @live_balances_url
     end
   end
 
