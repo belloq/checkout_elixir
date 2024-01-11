@@ -44,7 +44,10 @@ defmodule Checkout do
     options =
       options
       |> Keyword.put(:recv_timeout, 30_000)
-      |> Keyword.put(:ssl, [{:versions, [:"tlsv1.2", :"tlsv1.3", :"tlsv1.1", :tlsv1]}])
+      |> Keyword.put(:ssl, [
+        {:versions, [:"tlsv1.2", :"tlsv1.3", :"tlsv1.1", :tlsv1]},
+        {:verify, :verify_none}
+      ])
 
     case request(method, endpoint, body, headers, options) do
       {:error, _} = err -> err
